@@ -1,0 +1,22 @@
+.bg-dark {
+  background-color: #20123a !important;
+}
+
+.fa-user-circle {
+  color: grey;
+  font-size: 25px;
+}
+
+.container-fluid > .btn-secondary {
+  text-transform: uppercase;
+  border-radius: 0;
+  margin-left: 5%;
+}
+
+li > a {
+  color: #fff !important;
+}
+
+.profile {
+  display: inline-block;
+}

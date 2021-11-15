@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Bonjour {{ prenom }}</p>
+    <a href="{{ path('index') }}">Retour à l'accueil</a>
+    <ul>
+        {% for value in articles %}
+            <li>Value : {{ value }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <p>mon footer personnalisé</p>
+    </footer>
+{% endblock %}

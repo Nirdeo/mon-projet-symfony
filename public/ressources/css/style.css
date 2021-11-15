@@ -1,0 +1,44 @@
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+.form-control {
+  padding-left: 10%;
+}
+
+#form {
+  margin-top: 3%;
+}
+
+.nvcompte {
+  float: right;
+  margin-top: -20%;
+  margin-right: 20%;
+}
+
+.mr{
+  float: right;
+  margin-top: -20%;
+  margin-right: 20%;
+}
+
+.fr {
+  float: right;
+  margin-top: -34%;
+  margin-right: 17%;
+}
+
+img {
+  width: 261px;
+  height: 128px;
+}
+
+.vignette {
+  margin-left: 10%;
+  float: left;
+}
+
+.up {
+  text-transform: capitalize;
+}

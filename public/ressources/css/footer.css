@@ -1,0 +1,22 @@
+footer {
+  background-color: #000;
+  position: fixed;
+  bottom : 0;
+  left: 0;
+  width: 100%;
+}
+
+.ls {
+  float: left;
+  margin-left: 6%;
+  color: #fff;
+}
+
+.rs {
+  margin-left: 25%;
+  color: #fff;
+}
+
+.cg {
+  color: grey;
+}

@@ -1,3 +1,26 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+  path: /
+  methods: [ "GET" ]
+  controller: App\Controller\DefaultController::index
+
+bonjour:
+  path: /bonjour/{prenom}
+  methods: [ "GET" ]
+  controller: App\Controller\DefaultController::bonjour
+
+articles:
+  path: /articles
+  methods: [ "GET" ]
+  controller: App\Controller\ArticleController::index
+
+articles_show:
+  path: /articles/{articleId}
+  methods: [ "GET" ]
+  controller: App\Controller\ArticleController::show
+  requirements:
+    articleId: '\d+'
+
+msc:
+  path: /msc
+  methods: [ "GET" ]
+  controller: App\Controller\MscController::index
