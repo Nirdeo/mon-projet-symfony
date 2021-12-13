@@ -55,6 +55,12 @@ class Article
         $this->categories = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->title;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,7 +138,6 @@ class Article
     {
         if (!$this->categories->contains($category)) {
             $this->categories[] = $category;
-            $category->addArticle($this);
         }
 
         return $this;
@@ -140,9 +145,7 @@ class Article
 
     public function removeCategory(Category $category): self
     {
-        if ($this->categories->removeElement($category)) {
-            $category->removeArticle($this);
-        }
+        $this->categories->removeElement($category);
 
         return $this;
     }

@@ -5,16 +5,11 @@
 
     <ul>
         {% for article in articles %}
-            <li style="margin-bottom: 20px">
-                <h2>  {{ article.title }} </h2>
-                <span>Date {{ article.date|date('d/m/Y h:i') }}</span>
-                <p>{{ article.resume }}</p>
-                <p>
-                    <a href="{{ path('articles_show', {
-                        articleId: article.id
-                    }) }}">Lire la suite</a>
-                </p>
-            </li>
+            {#
+                On précise le with { } ... pour spécifier les variables à passer à la vue.
+                Si on ne le fait pas : toutes les variables seront par défaut inclue dans la vue.
+            #}
+            {% include 'common/_article_item.html.twig' with { article : article } only %}
         {% endfor %}
     </ul>
 {% endblock %}

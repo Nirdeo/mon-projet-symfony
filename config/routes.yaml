@@ -1,26 +1,79 @@
 index:
-  path: /
-  methods: [ "GET" ]
-  controller: App\Controller\DefaultController::index
+    path: /
+    methods: ["GET"]
+    controller: App\Controller\DefaultController::index
 
 bonjour:
-  path: /bonjour/{prenom}
-  methods: [ "GET" ]
-  controller: App\Controller\DefaultController::bonjour
+    path: /bonjour/{prenom}
+    methods: ["GET"]
+    controller: App\Controller\DefaultController::bonjour
 
 articles:
-  path: /articles
-  methods: [ "GET" ]
-  controller: App\Controller\ArticleController::index
+    path: /articles
+    methods: ["GET"]
+    controller: App\Controller\ArticleController::index
 
 articles_show:
-  path: /articles/{articleId}
-  methods: [ "GET" ]
-  controller: App\Controller\ArticleController::show
-  requirements:
-    articleId: '\d+'
+    path: /articles/{articleId}
+    methods: ["GET"]
+    controller: App\Controller\ArticleController::show
+    requirements:
+        articleId: '\d+'
 
-msc:
-  path: /msc
-  methods: [ "GET" ]
-  controller: App\Controller\MscController::index
+authors:
+    path: /auteurs
+    methods: ["GET"]
+    controller: App\Controller\AuthorController::index
+
+authors_show:
+    path: /auteurs/{id}
+    methods: ["GET"]
+    controller: App\Controller\AuthorController::show
+    requirements:
+        id: '\d+'
+
+# Administration
+admin_categories:
+    path: /admin/categories/
+    methods: ["GET"]
+    controller: App\Controller\Admin\CategoryController::index
+
+admin_categories_create:
+    path: /admin/categories/create
+    methods: ["GET", "POST"]
+    controller: App\Controller\Admin\CategoryController::create
+
+admin_categories_edit:
+    path: /admin/categories/edit/{id}
+    methods: ["GET", "POST"]
+    controller: App\Controller\Admin\CategoryController::edit
+
+admin_articles:
+    path: /admin/articles/
+    methods: ["GET"]
+    controller: App\Controller\Admin\ArticleController::index
+
+admin_articles_create:
+    path: /admin/articles/create
+    methods: ["GET", "POST"]
+    controller: App\Controller\Admin\ArticleController::create
+
+admin_articles_edit:
+    path: /admin/articles/edit/{id}
+    methods: ["GET", "POST"]
+    controller: App\Controller\Admin\ArticleController::edit
+
+# config/routes.yaml
+login:
+    path:       /login
+    controller: App\Controller\LoginController::index
+
+coin_cap_index:
+    path:       /cryptos
+    methods:    ["GET"]
+    controller: App\Controller\CoinCapController::index
+
+coin_cap_index-ajax:
+    path:       /cryptos-ajax
+    methods:    ["GET"]
+    controller: App\Controller\CoinCapController::index

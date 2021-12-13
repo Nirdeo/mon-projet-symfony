@@ -1,0 +1,10 @@
+<li style="margin-bottom: 20px;">
+    <h2>{{ article.title }}</h2>
+    <span>Date {{ article.date|date('d/m/Y h\\h:i') }}</span>
+    <p>{{ article.resume }}</p>
+    <p>
+        <a href="{{ path('articles_show', {
+            articleId: article.id
+        }) }}">Lire la suite</a>
+    </p>
+</li>

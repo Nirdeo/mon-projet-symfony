@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Article;
+use App\Entity\Author;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,32 +20,16 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
-    // /**
-    //  * @return Article[] Returns an array of Article objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findLastByAuthor(Author $author, int $limit = 5): array
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
+        $queryBuilder = $this->createQueryBuilder('article');
+        $queryBuilder
+            ->where('article.author = :author')
+            ->orderBy('article.date', 'DESC')
+            ->setMaxResults($limit)
+            ->setParameter('author', $author)
         ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Article
-    {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $queryBuilder->getQuery()->execute();
     }
-    */
 }

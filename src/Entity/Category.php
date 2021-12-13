@@ -63,6 +63,7 @@ class Category
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
+            $article->addCategory($this);
         }
 
         return $this;
@@ -70,7 +71,9 @@ class Category
 
     public function removeArticle(Article $article): self
     {
-        $this->articles->removeElement($article);
+        if ($this->articles->removeElement($article)) {
+            $article->removeCategory($this);
+        }
 
         return $this;
     }
